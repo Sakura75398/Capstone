@@ -1,0 +1,11 @@
+.product-card-container {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card-container img {
+    max-width: 80%;
+    text-align: center;
+}
