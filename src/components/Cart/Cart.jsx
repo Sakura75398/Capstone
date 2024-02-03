@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../Products/ProductCard";
-import { Checkout } from "./Checkout";
 
 export default function Cart({ cart, setCart }) {
   console.log(cart);
