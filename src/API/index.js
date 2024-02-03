@@ -1,5 +1,3 @@
-
-
 async function fetchProductData() {
   try {
     const res = await fetch(`https://fakestoreapi.com/products`);
@@ -21,38 +19,37 @@ async function fetchSingleProduct() {
 }
 
 async function registerUser() {
-    try {
-        const res = await fetch('https://fakestoreapi.com/users',
-        {
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body:JSON.stringify(productData),
-        }
-    );
+  try {
+    const res = await fetch("https://fakestoreapi.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    });
     const json = await res.json();
     console.log(json);
     return json;
-} catch (err) {
+  } catch (err) {
     throw err;
-}
+  }
 }
 
-async function Login() {
-    try {
-        const res = await fetch('https://fakestoreapi.com/auth/login',{
-            method:'POST',
-            body:JSON.stringify({
-                username: "",
-                password: ""
-            })
-        });
-        const json = await res.json();
-        return json;
-    } catch (err) {
-        throw err;
-    }
+async function login(username, password) {
+  try {
+    const res = await fetch("https://fakestoreapi.com/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+    const json = await res.json();
+    return json;
+  } catch (err) {
+    throw err;
+  }
 }
 
 // async function cart() {
@@ -63,14 +60,20 @@ async function Login() {
 // }
 
 async function deleteUser(id) {
-    try {
-        const res = await fetch('https://fakestoreapi.com/users/6');
-        const json = await res.json();
-        console.log(json);
-        return json;
-    } catch (err) {
-        throw err;
-    }
+  try {
+    const res = await fetch("https://fakestoreapi.com/users/6");
+    const json = await res.json();
+    console.log(json);
+    return json;
+  } catch (err) {
+    throw err;
+  }
 }
 
-export { fetchProductData, fetchSingleProduct, registerUser, Login, deleteUser, }
+export {
+  fetchProductData,
+  fetchSingleProduct,
+  registerUser,
+  login,
+  deleteUser,
+};
